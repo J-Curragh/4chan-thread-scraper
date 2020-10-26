@@ -34,7 +34,7 @@ def getImages():
                 # only store img URL if it is not already in the imgs list.
                 if imgs[-1] != s: imgs.append(s)
             else: imgs.append(s)
-    
+    print(imgs)
     return imgs, len(imgs)
 
 def getThreadID():
@@ -48,17 +48,16 @@ def saveImages(image_list: list):
 
     # enumerate through the image names
     for x, img in enumerate(image_list[0]):
+        filetype = img[-3:]
         r = get(img)
-        with open((f"{filepath}/{x}.jpg"), 'wb') as f:
+        with open((f"{filepath}/{x}.{filetype}"), 'wb') as f:
             f.write(r.content)
-        print(f"{x}.jpg saved. ({image_list[1] - x} images remaining)")
+        print(f"{x}.{filetype} saved. ({image_list[1] - x} images remaining)")
 
 def main():
 
     getURL()
     saveImages(getImages())
-
-
 
 if __name__ == "__main__":
     main()
