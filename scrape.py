@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from requests import get
 from os import makedirs
-import time
 import sys
 import re
 
@@ -34,7 +33,6 @@ def getImages():
                 # only store img URL if it is not already in the imgs list.
                 if imgs[-1] != s: imgs.append(s)
             else: imgs.append(s)
-    print(imgs)
     return imgs, len(imgs)
 
 def getThreadID():
