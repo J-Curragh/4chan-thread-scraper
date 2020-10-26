@@ -20,7 +20,6 @@ def getURL():
     return THREAD_URL
 
 def getImages():
-    global THREAD_URL
     imgs = []
     s = ""
     soup = BeautifulSoup(get(THREAD_URL).text, 'lxml')
@@ -36,7 +35,6 @@ def getImages():
     return imgs, len(imgs)
 
 def getThreadID():
-    global THREAD_URL
     THREAD_ID = re.search("(?<=thread/)(.*)$", THREAD_URL).group(0)
     return THREAD_ID
 
