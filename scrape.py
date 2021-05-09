@@ -8,7 +8,6 @@ import re
 THREAD_URL = ""
 
 def getURL():
-    global THREAD_URL
 
     # sys.argv list always starts with filename.py
     if len(sys.argv) > 1:
